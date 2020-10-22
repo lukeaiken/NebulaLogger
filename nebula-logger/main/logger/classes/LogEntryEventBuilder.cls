@@ -51,7 +51,7 @@ global without sharing class LogEntryEventBuilder {
 
         // Stack traces can't be captured when running as a managed package
         // ...so don't bother trying (reduces heap size & CPU usage)
-        if (getNamespacePrefix() != null) {
+        if (getNamespacePrefix() != null && !Test.isRunningTest()) {
             return;
         }
 

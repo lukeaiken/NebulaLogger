@@ -518,7 +518,7 @@ private class Logger_Tests {
 
         Test.startTest();
 
-        Logger.warn(logMessage, Database.insert(new User()));
+        Logger.warn(logMessage, Database.insert(new User(), false));
         Logger.saveLog();
 
         Test.stopTest();
@@ -537,7 +537,7 @@ private class Logger_Tests {
 
         Test.startTest();
 
-        Logger.warn(logMessage, Database.upsert(new User()));
+        Logger.warn(logMessage, Database.upsert(new User(), false));
         Logger.saveLog();
 
         Test.stopTest();

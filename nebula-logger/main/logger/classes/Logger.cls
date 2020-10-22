@@ -236,52 +236,52 @@ global without sharing class Logger {
         return createLogEntryEventBuilder(LoggingLevel.WARN);
     }
 
-    global static LogEntryEventBuilder warn(String message) {
-        return warn().setMessage(message);
-    }
-
-    global static LogEntryEventBuilder warn(LogMessage logMessage) {
-        return warn().setMessage(logMessage);
-    }
-
-    global static LogEntryEventBuilder warn(String message, List<String> topics) {
-        return warn().setMessage(message).setTopics(topics);
-    }
-
-    global static LogEntryEventBuilder warn(LogMessage logMessage, List<String> topics) {
-        return warn().setMessage(logMessage).setTopics(topics);
-    }
-
-    global static LogEntryEventBuilder warn(String message, SObject record) {
-        return warn().setMessage(message).setRecordId(record);
-    }
-
-    global static LogEntryEventBuilder warn(LogMessage logMessage, SObject record) {
-        return warn().setMessage(logMessage).setRecordId(record);
-    }
-
-    global static LogEntryEventBuilder warn(String message, SObject record, List<String> topics) {
-        return warn().setMessage(message).setRecordId(record).setTopics(topics);
-    }
-
-    global static LogEntryEventBuilder warn(LogMessage logMessage, SObject record, List<String> topics) {
-        return warn().setMessage(logMessage).setRecordId(record).setTopics(topics);
-    }
-
-    global static LogEntryEventBuilder warn(String message, Id recordId) {
-        return warn().setMessage(message).setRecordId(recordId);
+    global static LogEntryEventBuilder warn(LogMessage logMessage, Id recordId, List<String> topics) {
+        return warn().setMessage(logMessage).setRecordId(recordId).setTopics(topics);
     }
 
     global static LogEntryEventBuilder warn(LogMessage logMessage, Id recordId) {
         return warn().setMessage(logMessage).setRecordId(recordId);
     }
 
+    global static LogEntryEventBuilder warn(LogMessage logMessage, List<String> topics) {
+        return warn().setMessage(logMessage).setTopics(topics);
+    }
+
+    global static LogEntryEventBuilder warn(LogMessage logMessage, SObject record, List<String> topics) {
+        return warn().setMessage(logMessage).setRecordId(record).setTopics(topics);
+    }
+
+    global static LogEntryEventBuilder warn(LogMessage logMessage, SObject record) {
+        return warn().setMessage(logMessage).setRecordId(record);
+    }
+
+    global static LogEntryEventBuilder warn(LogMessage logMessage) {
+        return warn().setMessage(logMessage);
+    }
+
     global static LogEntryEventBuilder warn(String message, Id recordId, List<String> topics) {
         return warn().setMessage(message).setRecordId(recordId).setTopics(topics);
     }
 
-    global static LogEntryEventBuilder warn(LogMessage logMessage, Id recordId, List<String> topics) {
-        return warn().setMessage(logMessage).setRecordId(recordId).setTopics(topics);
+    global static LogEntryEventBuilder warn(String message, Id recordId) {
+        return warn().setMessage(message).setRecordId(recordId);
+    }
+
+    global static LogEntryEventBuilder warn(String message, List<String> topics) {
+        return warn().setMessage(message).setTopics(topics);
+    }
+
+    global static LogEntryEventBuilder warn(String message, SObject record, List<String> topics) {
+        return warn().setMessage(message).setRecordId(record).setTopics(topics);
+    }
+
+    global static LogEntryEventBuilder warn(String message, SObject record) {
+        return warn().setMessage(message).setRecordId(record);
+    }
+
+    global static LogEntryEventBuilder warn(String message) {
+        return warn().setMessage(message);
     }
 
     // INFO logging level methods

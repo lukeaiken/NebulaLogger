@@ -22,8 +22,6 @@ global without sharing class LogEntryEventBuilder {
             return;
         }
 
-        DmlException stackTraceException = new DmlException();
-
         this.logEntryEvent = new LogEntryEvent__e(
             ApiVersion__c = API_VERSION,
             ContextIsTriggerExecuting__c = Trigger.isExecuting,
@@ -51,7 +49,13 @@ global without sharing class LogEntryEventBuilder {
             Type__c = ENTRY_TYPE_DIAGNOSTIC
         );
 
-        this.parseStackTrace(stackTraceException.getStackTraceString());
+        // Stack traces can't be captured when running as a managed package
+        // ...so don't bother trying (reduces heap size & CPU usage)
+        if (getNamespacePrefix() != null) {
+            return;
+        }
+
+        this.parseStackTrace(new DmlException().getStackTraceString());
     }
 
     global LogEntryEventBuilder setMessage(String message) {

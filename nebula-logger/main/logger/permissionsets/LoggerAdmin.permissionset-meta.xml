@@ -96,6 +96,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>LogEntry__c.DmlOperationErrors__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LogEntry__c.DmlOperationType__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>LogEntry__c.ExceptionMessage__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -112,6 +122,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>LogEntry__c.FlowName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LogEntry__c.HasDmlOperationType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

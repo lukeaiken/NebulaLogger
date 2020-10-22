@@ -4,14 +4,24 @@
  *************************************************************************************************/
 @isTest
 private class LogEntryEventBuilder_Tests {
+    private static final String ENTRY_TYPE_DIAGNOSTIC = 'Diagnostic';
+    private static final String ENTRY_TYPE_EXCEPTION = 'Exception';
     @TestSetup
     static void setup() {
-        insert new LoggerSettings__c(IsEnabled__c = false, LoggingLevel__c = 'DEBUG', Name = 'Test Settings');
+        // Most tests will involve settings being enabled, so enable by default
+        // Any tests that need a specific logging level, or logging disabled, should handle updating the settings
+        insert new LoggerSettings__c(IsEnabled__c = true, LoggingLevel__c = 'DEBUG', Name = 'Test Settings');
     }
 
     @isTest
     static void it_should_short_circuit_when_logging_is_not_enabled() {
+        LoggerSettings__c settings = [SELECT Id, IsEnabled__c FROM LoggerSettings__c];
+        settings.IsEnabled__c = false;
+        update settings;
+
+        Test.startTest();
         LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.DEBUG);
+        Test.stopTest();
 
         System.assertEquals(null, builder.getLogEntryEvent());
         System.assertEquals(null, builder.setMessage('test').getLogEntryEvent());
@@ -24,7 +34,7 @@ private class LogEntryEventBuilder_Tests {
     @isTest
     static void it_should_short_circuit_when_enabled_logging_level_above_called_level() {
         LoggerSettings__c settings = [SELECT Id, IsEnabled__c FROM LoggerSettings__c];
-        settings.IsEnabled__c = true;
+        settings.IsEnabled__c = false;
         update settings;
 
         LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.FINE);
@@ -42,6 +52,88 @@ private class LogEntryEventBuilder_Tests {
         LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.FINE);
 
         System.assertNotEquals(null, builder.getLogEntryEvent());
+    }
+
+    // TODO - figure out the best way to handle DeleteResult & MergeResult
+    // ...that works in all orgs so the unmanaged project can be deployed as-is
+    // @isTest
+    // static void it_should_set_dml_result_fields_for_delete_result_with_errors() {
+    //     System.assert(Logger.isEnabled());
+
+    //     Database.DeleteResult deleteResult = Database.delete(new Account(Id = '0011234567890ABCDEF'), false);
+    //     System.assertEquals(false, deleteResult.isSuccess());
+
+    //     LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.INFO);
+
+    //     Test.startTest();
+    //     builder.setDmlResult(deleteResult);
+    //     Test.stopTest();
+
+    //     LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
+
+    //     System.assertEquals(Json.serialize(deleteResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+    //     System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
+    //     System.assertEquals(Database.DeleteResult.class.getName(), logEntryEvent.DmlOperationType__c);
+    // }
+
+    // @isTest
+    // static void it_should_set_dml_result_fields_for_merge_result_with_errors() {
+    //     System.assert(Logger.isEnabled());
+
+    //     Database.MergeResult mergeResult = Database.merge(new Account(), new Account(), false);
+    //     System.assertEquals(false, mergeResult.isSuccess());
+
+    //     LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.INFO);
+
+    //     Test.startTest();
+    //     builder.setDmlResult(mergeResult);
+    //     Test.stopTest();
+
+    //     LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
+
+    //     System.assertEquals(Json.serialize(mergeResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+    //     System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
+    //     System.assertEquals(Database.MergeResult.class.getName(), logEntryEvent.DmlOperationType__c);
+    // }
+
+    @isTest
+    static void it_should_set_dml_result_fields_for_save_result_with_errors() {
+        System.assert(Logger.isEnabled());
+
+        Database.SaveResult saveResult = Database.insert(new Account(), false);
+        System.assertEquals(false, saveResult.isSuccess());
+
+        LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.INFO);
+
+        Test.startTest();
+        builder.setDmlResult(saveResult);
+        Test.stopTest();
+
+        LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
+
+        System.assertEquals(Json.serialize(saveResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+        System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
+        System.assertEquals(Database.SaveResult.class.getName(), logEntryEvent.DmlOperationType__c);
+    }
+
+    @isTest
+    static void it_should_set_dml_result_fields_for_upsert_result_with_errors() {
+        System.assert(Logger.isEnabled());
+
+        Database.UpsertResult upsertResult = Database.upsert(new Account(), false);
+        System.assertEquals(false, upsertResult.isSuccess());
+
+        LogEntryEventBuilder builder = new LogEntryEventBuilder(LoggingLevel.INFO);
+
+        Test.startTest();
+        builder.setDmlResult(upsertResult);
+        Test.stopTest();
+
+        LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
+
+        System.assertEquals(Json.serialize(upsertResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+        System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
+        System.assertEquals(Database.UpsertResult.class.getName() + '.Insert', logEntryEvent.DmlOperationType__c);
     }
 
     @isTest

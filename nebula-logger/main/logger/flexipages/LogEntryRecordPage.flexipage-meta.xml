@@ -200,6 +200,41 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.DmlOperationType__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DmlOperationErrors__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-33fa4a5d-f64c-469a-a5e7-7f9528c15ecb</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-33fa4a5d-f64c-469a-a5e7-7f9528c15ecb</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-e74b6fe1-4cbe-4718-8255-a2215dc50d58</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.ExceptionType__c</fieldItem>
             </fieldInstance>
         </itemInstances>
@@ -485,6 +520,26 @@
                     <value>Message Information</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-e74b6fe1-4cbe-4718-8255-a2215dc50d58</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>DML Operation Information</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.HasDmlOperationType__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

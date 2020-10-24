@@ -423,13 +423,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.ERROR.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -447,13 +447,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.ERROR.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void error(String message, SObject record, List<String> topics) {
     //     error().setMessage(message).setRecordId(record).setTopics(topics);
@@ -474,13 +474,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.ERROR.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -498,13 +498,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.ERROR.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void error(String message, Id recordId, List<String> topics) {
     //     error().setMessage(message).setRecordId(recordId).setTopics(topics);
@@ -582,13 +582,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.WARN.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -606,13 +606,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.WARN.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -649,13 +649,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.WARN.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -673,13 +673,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.WARN.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -738,13 +738,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.INFO.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -762,13 +762,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.INFO.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void info(String message, SObject record, List<String> topics) {
     //     info().setMessage(message).setRecordId(record).setTopics(topics);
@@ -789,13 +789,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.INFO.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -813,13 +813,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.INFO.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void info(String message, Id recordId, List<String> topics) {
     //     info().setMessage(message).setRecordId(recordId).setTopics(topics);
@@ -881,13 +881,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.DEBUG.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -905,13 +905,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.DEBUG.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void debug(String message, SObject record, List<String> topics) {
     //     debug().setMessage(message).setRecordId(record).setTopics(topics);
@@ -932,13 +932,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.DEBUG.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -956,13 +956,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.DEBUG.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void debug(String message, Id recordId, List<String> topics) {
     //     debug().setMessage(message).setRecordId(recordId).setTopics(topics);
@@ -1024,13 +1024,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINE.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -1048,13 +1048,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINE.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void fine(String message, SObject record, List<String> topics) {
     //     fine().setMessage(message).setRecordId(record).setTopics(topics);
@@ -1075,13 +1075,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINE.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -1099,13 +1099,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINE.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void fine(String message, Id recordId, List<String> topics) {
     //     fine().setMessage(message).setRecordId(recordId).setTopics(topics);
@@ -1167,13 +1167,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINER.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -1191,13 +1191,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINER.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void finer(String message, SObject record, List<String> topics) {
     //     finer().setMessage(message).setRecordId(record).setTopics(topics);
@@ -1218,13 +1218,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINER.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -1242,13 +1242,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINER.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void finer(String message, Id recordId, List<String> topics) {
     //     finer().setMessage(message).setRecordId(recordId).setTopics(topics);
@@ -1310,13 +1310,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINEST.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -1334,13 +1334,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINEST.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void finest(String message, SObject record, List<String> topics) {
     //     finest().setMessage(message).setRecordId(record).setTopics(topics);
@@ -1361,13 +1361,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINEST.name(), logEntry.LoggingLevel__c);
         System.assertEquals(message, logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
 
     @isTest
@@ -1385,13 +1385,13 @@ private class Logger_Tests {
         Test.stopTest();
 
         LogEntry__c logEntry = [
-            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RelatedRecordId__c
+            SELECT Id, LoggingLevel__c, Message__c, OriginLocation__c, RecordId__c
             FROM LogEntry__c
         ];
         System.assertEquals(LoggingLevel.FINEST.name(), logEntry.LoggingLevel__c);
         System.assertEquals(logMessage.getMessage(), logEntry.Message__c);
         System.assertEquals(getOriginLocation(), logEntry.OriginLocation__c);
-        System.assertEquals(currentUser.Id, logEntry.RelatedRecordId__c);
+        System.assertEquals(currentUser.Id, logEntry.RecordId__c);
     }
     // public static void finest(String message, Id recordId, List<String> topics) {
     //     finest().setMessage(message).setRecordId(recordId).setTopics(topics);

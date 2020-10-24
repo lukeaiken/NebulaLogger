@@ -103,33 +103,33 @@ global without sharing class LogEntryEventBuilder {
     // DML-result builder methods. All* of the Result classes behave the same (*except Upsert)
     // ...but Salesforce didn't bother to use an interface for the classes, so instead - overloads!
     global LogEntryEventBuilder setDmlResult(Database.DeleteResult deleteResult) {
-        this.logEntryEvent.DmlOperationType__c = Database.DeleteResult.class.getName();
+        this.logEntryEvent.DmlResultType__c = Database.DeleteResult.class.getName();
 
         if (!deleteResult.isSuccess()) {
             this.logEntryEvent.Type__c = ENTRY_TYPE_EXCEPTION;
-            this.logEntryEvent.DmlOperationErrors__c = Json.serialize(deleteResult.getErrors());
+            this.logEntryEvent.DmlResultErrors__c = Json.serialize(deleteResult.getErrors());
         }
 
         return this.setRecordId(deleteResult.getId());
     }
 
     global LogEntryEventBuilder setDmlResult(Database.MergeResult mergeResult) {
-        this.logEntryEvent.DmlOperationType__c = Database.MergeResult.class.getName();
+        this.logEntryEvent.DmlResultType__c = Database.MergeResult.class.getName();
 
         if (!mergeResult.isSuccess()) {
             this.logEntryEvent.Type__c = ENTRY_TYPE_EXCEPTION;
-            this.logEntryEvent.DmlOperationErrors__c = Json.serialize(mergeResult.getErrors());
+            this.logEntryEvent.DmlResultErrors__c = Json.serialize(mergeResult.getErrors());
         }
 
         return this.setRecordId(mergeResult.getId());
     }
 
     global LogEntryEventBuilder setDmlResult(Database.SaveResult saveResult) {
-        this.logEntryEvent.DmlOperationType__c = Database.SaveResult.class.getName();
+        this.logEntryEvent.DmlResultType__c = Database.SaveResult.class.getName();
 
         if (!saveResult.isSuccess()) {
             this.logEntryEvent.Type__c = ENTRY_TYPE_EXCEPTION;
-            this.logEntryEvent.DmlOperationErrors__c = Json.serialize(saveResult.getErrors());
+            this.logEntryEvent.DmlResultErrors__c = Json.serialize(saveResult.getErrors());
         }
 
         return this.setRecordId(saveResult.getId());
@@ -138,21 +138,21 @@ global without sharing class LogEntryEventBuilder {
     global LogEntryEventBuilder setDmlResult(Database.UpsertResult upsertResult) {
         // Upsert has 2 subtypes (surprise!) - insert and update - so, UpsertResult has an extra method to take into account
         String subtype = upsertResult.isCreated() ? 'Insert' : 'Update';
-        this.logEntryEvent.DmlOperationType__c = Database.UpsertResult.class.getName() + '.' + subtype;
+        this.logEntryEvent.DmlResultType__c = Database.UpsertResult.class.getName() + '.' + subtype;
 
         if (!upsertResult.isSuccess()) {
             this.logEntryEvent.Type__c = ENTRY_TYPE_EXCEPTION;
-            this.logEntryEvent.DmlOperationErrors__c = Json.serialize(upsertResult.getErrors());
+            this.logEntryEvent.DmlResultErrors__c = Json.serialize(upsertResult.getErrors());
         }
 
         return this.setRecordId(upsertResult.getId());
     }
 
     global LogEntryEventBuilder setDmlResult(Database.UndeleteResult undeleteResult) {
-        this.logEntryEvent.DmlOperationType__c = Database.UndeleteResult.class.getName();
+        this.logEntryEvent.DmlResultType__c = Database.UndeleteResult.class.getName();
         if (!undeleteResult.isSuccess()) {
             this.logEntryEvent.Type__c = ENTRY_TYPE_EXCEPTION;
-            this.logEntryEvent.DmlOperationErrors__c = Json.serialize(undeleteResult.getErrors());
+            this.logEntryEvent.DmlResultErrors__c = Json.serialize(undeleteResult.getErrors());
         }
 
         return this.setRecordId(undeleteResult.getId());

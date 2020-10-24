@@ -71,9 +71,9 @@ private class LogEntryEventBuilder_Tests {
 
     //     LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
 
-    //     System.assertEquals(Json.serialize(deleteResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+    //     System.assertEquals(Json.serialize(deleteResult.getErrors()), logEntryEvent.DmlResultErrors__c);
     //     System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
-    //     System.assertEquals(Database.DeleteResult.class.getName(), logEntryEvent.DmlOperationType__c);
+    //     System.assertEquals(Database.DeleteResult.class.getName(), logEntryEvent.DmlResultType__c);
     // }
 
     // @isTest
@@ -91,9 +91,9 @@ private class LogEntryEventBuilder_Tests {
 
     //     LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
 
-    //     System.assertEquals(Json.serialize(mergeResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+    //     System.assertEquals(Json.serialize(mergeResult.getErrors()), logEntryEvent.DmlResultErrors__c);
     //     System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
-    //     System.assertEquals(Database.MergeResult.class.getName(), logEntryEvent.DmlOperationType__c);
+    //     System.assertEquals(Database.MergeResult.class.getName(), logEntryEvent.DmlResultType__c);
     // }
 
     @isTest
@@ -111,9 +111,9 @@ private class LogEntryEventBuilder_Tests {
 
         LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
 
-        System.assertEquals(Json.serialize(saveResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+        System.assertEquals(Json.serialize(saveResult.getErrors()), logEntryEvent.DmlResultErrors__c);
         System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
-        System.assertEquals(Database.SaveResult.class.getName(), logEntryEvent.DmlOperationType__c);
+        System.assertEquals(Database.SaveResult.class.getName(), logEntryEvent.DmlResultType__c);
     }
 
     @isTest
@@ -131,9 +131,9 @@ private class LogEntryEventBuilder_Tests {
 
         LogEntryEvent__e logEntryEvent = builder.getLogEntryEvent();
 
-        System.assertEquals(Json.serialize(upsertResult.getErrors()), logEntryEvent.DmlOperationErrors__c);
+        System.assertEquals(Json.serialize(upsertResult.getErrors()), logEntryEvent.DmlResultErrors__c);
         System.assertEquals(ENTRY_TYPE_EXCEPTION, logEntryEvent.Type__c);
-        System.assertEquals(Database.UpsertResult.class.getName() + '.Insert', logEntryEvent.DmlOperationType__c);
+        System.assertEquals(Database.UpsertResult.class.getName() + '.Insert', logEntryEvent.DmlResultType__c);
     }
 
     @isTest

@@ -200,7 +200,7 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DmlOperationType__c</fieldItem>
+                <fieldItem>Record.DmlResultType__c</fieldItem>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -209,7 +209,7 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DmlOperationErrors__c</fieldItem>
+                <fieldItem>Record.DmlResultErrors__c</fieldItem>
             </fieldInstance>
         </itemInstances>
         <name>Facet-33fa4a5d-f64c-469a-a5e7-7f9528c15ecb</name>
@@ -530,12 +530,12 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>DML Operation Information</value>
+                    <value>DML Result Information</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <visibilityRule>
                     <criteria>
-                        <leftValue>{!Record.HasDmlOperationType__c}</leftValue>
+                        <leftValue>{!Record.HasDmlResultType__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>true</rightValue>
                     </criteria>

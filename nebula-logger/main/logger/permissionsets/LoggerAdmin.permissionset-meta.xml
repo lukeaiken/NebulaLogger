@@ -96,12 +96,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>LogEntry__c.DmlOperationErrors__c</field>
+        <field>LogEntry__c.DmlResultErrors__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>LogEntry__c.DmlOperationType__c</field>
+        <field>LogEntry__c.DmlResultType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -126,7 +126,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>LogEntry__c.HasDmlOperationType__c</field>
+        <field>LogEntry__c.HasDmlResultType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

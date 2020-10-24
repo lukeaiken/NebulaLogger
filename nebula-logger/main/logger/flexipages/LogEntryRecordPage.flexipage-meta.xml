@@ -535,7 +535,7 @@
                 <componentName>flexipage:fieldSection</componentName>
                 <visibilityRule>
                     <criteria>
-                        <leftValue>{!Record.HasDmlResultType__c}</leftValue>
+                        <leftValue>{!Record.HasDmlResult__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>true</rightValue>
                     </criteria>

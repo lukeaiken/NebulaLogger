@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_Mapping_Object_Selected</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    MappedSObject__r.DeveloperName != &apos;Log&apos;,
+    MappedSObject__r.DeveloperName != &apos;LogEntry&apos;
+)</errorConditionFormula>
+    <errorDisplayField>MappedSObject__c</errorDisplayField>
+    <errorMessage>You must select either the Log or Log Entry object</errorMessage>
+</ValidationRule>
